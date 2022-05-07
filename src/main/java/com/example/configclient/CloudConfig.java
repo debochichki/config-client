@@ -1,12 +1,16 @@
 package com.example.configclient;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.boot.context.properties.ConstructorBinding;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
-@ConstructorBinding
+/**
+ * Manual refresh of configuration properties, served by the Config Server, works only if they are
+ * registered as Spring Beans
+ */
 @ConfigurationProperties
+@Component
 public class CloudConfig {
 
   private final List<String> currencies;
